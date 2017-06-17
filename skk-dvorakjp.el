@@ -25,38 +25,33 @@
   (defvar skk-jisx0201-rule-list)
   (defvar skk-jisx0201-base-rule-list))
 
-(defvar skk-act-unnecessary-base-rule-list
+(defvar skk-dvorakjp-unnecessary-base-rule-list
   (let ((list
 	 `("kha" "khe" "khi" "kho" "khu"
 	   "dha" "dhe" "dhi" "dho" "dhu"
 	   "ja" "je" "ji" "jo" "ju"
 	   "jya" "jye" "jyi" "jyo" "jyu"
-	   "xa" "xe" "xi" "xo" "xu"
+	   ;;"xa" "xe" "xi" "xo" "xu"
 	   "xka" "xke"
 	   "xtsu" "xtu"
 	   "xwa" "xwe" "xwi"
-	   "xya" "xyo" "xyu")))
-    ;; skk-act-use-normal-y が nil であれば拗音も削除
-		;; この設定はACTのものを流用した
-    (unless skk-act-use-normal-y
-      (setq list
-	    (append list
-		    '("bya" "bye" "byi" "byo" "byu"
-		      "cya" "cye" "cyi" "cyo" "cyu"
-		      "dya" "dye" "dyi" "dyo" "dyu"
-		      "fya" "fye" "fyi" "fyo" "fyu"
-		      "gya" "gye" "gyi" "gyo" "gyu"
-		      "hya" "hye" "hyi" "hyo" "hyu"
-		      "mya" "mye" "myi" "myo" "myu"
-		      "nya" "nye" "nyi" "nyo" "nyu"
-		      "pya" "pye" "pyi" "pyo" "pyu"
-		      "rya" "rye" "ryi" "ryo" "ryu"
-		      "sya" "sye" "syi" "syo" "syu"
-		      "tya" "tye" "tyi" "tyo" "tyu"
-		      "zya" "zye" "zyi" "zyo" "zyu"))))
-    list))
+	   "xya" "xyo" "xyu"
+		 "bya" "bye" "byi" "byo" "byu"
+		 "kya" "kye" "kyi" "kyo" "kyu"
+		 "dya" "dye" "dyi" "dyo" "dyu"
+		 "fya" "fye" "fyi" "fyo" "fyu"
+		 "gya" "gye" "gyi" "gyo" "gyu"
+		 "hya" "hye" "hyi" "hyo" "hyu"
+		 "mya" "mye" "myi" "myo" "myu"
+		 "nya" "nye" "nyi" "nyo" "nyu"
+		 "pya" "pye" "pyi" "pyo" "pyu"
+		 "rya" "rye" "ryi" "ryo" "ryu"
+		 "sya" "sye" "syi" "syo" "syu"
+		 "tya" "tye" "tyi" "tyo" "tyu"
+		 "zya" "zye" "zyi" "zyo" "zyu"))
+    list)))
 
-(defvar skk-act-additional-rom-kana-rule-list
+(defvar skk-dvorakjp-additional-rom-kana-rule-list
   (let ((list
 	 '(("\\" nil skk-toggle-kana)
 	   ("|" nil skk-set-henkan-point-subr)
@@ -640,41 +635,33 @@
 	   ;; ("wmp" nil ("ウゥウ" . "うぅう"))
 	   ;; ("wm." nil ("ウェイ" . "うぇい"))
 	   ;; ("wm," nil ("ウォウ" . "うぉう"))
-		 )))
-    (unless skk-act-use-normal-y
-      (setq list
-	    (append list
-		    '(("cy" nil ("クイ" . "くい"))
-		      ("sy" nil ("スイ" . "すい"))
-		      ("ty" nil ("ツイ" . "つい"))
-		      ("ny" nil ("ヌイ" . "ぬい"))
-		      ("hy" nil ("フイ" . "ふい"))
-		      ("my" nil ("ムイ" . "むい"))
-		      ("yy" nil ("ユイ" . "ゆい"))
-		      ("ry" nil ("ルイ" . "るい"))
-		      ("wy" nil ("ウイ" . "うい"))
-		      ("gy" nil ("グイ" . "ぐい"))
-		      ("zy" nil ("ズイ" . "ずい"))
-		      ("dy" nil ("ヅイ" . "づい"))
-		      ("by" nil ("ブイ" . "ぶい"))
-		      ("py" nil ("プイ" . "ぷい"))
-		      ("cgy" nil ("キュイ" . "きゅい"))
-		      ("shy" nil ("シュイ" . "しゅい"))
-		      ("thy" nil ("チュイ" . "ちゅい"))
-		      ("nhy" nil ("ニュイ" . "にゅい"))
-		      ("hny" nil ("ヒュイ" . "ひゅい"))
-		      ("mvy" nil ("ミュイ" . "みゅい"))
-		      ("rgy" nil ("リュイ" . "りゅい"))
-		      ("gry" nil ("ギュイ" . "ぎゅい"))
-		      ("zmy" nil ("ジュイ" . "じゅい"))
-		      ("dny" nil ("ヂュイ" . "ぢゅい"))
-		      ("bvy" nil ("ビュイ" . "びゅい"))
-		      ("pny" nil ("ピュイ" . "ぴゅい"))
-		      ("fy" nil ("フイ" . "ふい"))	; リファレンスにはなし
-		      ("vy" nil ("ヴイ" . "う゛い"))	; リファレンスにはなし
-		      ("twy" nil ("テュイ" . "てゅい"))
-		      ("dby" nil ("デュイ" . "でゅい"))
-		      ("wmy" nil ("ウゥイ" . "うぅい"))))))
+		 ("ky" nil ("クイ" . "くい"))
+		 ("sy" nil ("スイ" . "すい"))
+		 ("ty" nil ("ツイ" . "つい"))
+		 ("ny" nil ("ヌイ" . "ぬい"))
+		 ("hy" nil ("フイ" . "ふい"))
+		 ("my" nil ("ムイ" . "むい"))
+		 ("yy" nil ("ユイ" . "ゆい"))
+		 ("ry" nil ("ルイ" . "るい"))
+		 ("wy" nil ("ウイ" . "うい"))
+		 ("gy" nil ("グイ" . "ぐい"))
+		 ("zy" nil ("ズイ" . "ずい"))
+		 ("dy" nil ("ヅイ" . "づい"))
+		 ("by" nil ("ブイ" . "ぶい"))
+		 ("py" nil ("プイ" . "ぷい"))
+		 ("cgy" nil ("キュイ" . "きゅい"))
+		 ("shy" nil ("シュイ" . "しゅい"))
+		 ("thy" nil ("テュイ" . "てゅい"))
+     ("tny" nil ("チュイ" . "ちゅい"))
+		 ("nhy" nil ("ニュイ" . "にゅい"))
+		 ("hny" nil ("ヒュイ" . "ひゅい"))
+		 ("dny" nil ("ヂュイ" . "ぢゅい"))
+     ("dhy" nil ("デュイ" . "でゅい"))
+		 ("bhy" nil ("ビュイ" . "びゅい"))
+		 ("phy" nil ("ピュイ" . "ぴゅい"))
+		 ("fy" nil ("フイ" . "ふい"))	; リファレンスにはなし
+		 ("vy" nil ("ヴイ" . "う゛い"))	; リファレンスにはなし
+    )))
     ;; shift を押したままの二重母音拡張
     ;; `skk-special-midashi-char-list' に
     ;; < > が無い場合のみ追加する
@@ -757,7 +744,7 @@
       (append skk-set-henkan-point-key '(?\" ?: ?Q ?X)))
 
 ;; skk-rom-kana-base-rule-list から変換規則を削除する
-(dolist (str skk-act-unnecessary-base-rule-list)
+(dolist (str skk-dvorakjp-unnecessary-base-rule-list)
   (setq skk-rom-kana-base-rule-list
 	(skk-del-alist str skk-rom-kana-base-rule-list)))
 
@@ -768,13 +755,13 @@
 	  (skk-del-alist str skk-rom-kana-rule-list))))
 
 ;; DvorakJP特有の変換規則を追加する
-(dolist (rule skk-act-additional-rom-kana-rule-list)
+(dolist (rule skk-dvorakjp-additional-rom-kana-rule-list)
   (add-to-list 'skk-rom-kana-rule-list rule))
 
 ;; for jisx0201
 (eval-after-load "skk-jisx0201"
   '(progn
-     (dolist (str skk-act-unnecessary-base-rule-list)
+     (dolist (str skk-dvorakjp-unnecessary-base-rule-list)
        (setq skk-jisx0201-base-rule-list
 	     (skk-del-alist str skk-jisx0201-base-rule-list)))
 
@@ -783,7 +770,7 @@
 	 (setq skk-jisx0201-base-rule-list
 	       (skk-del-alist str skk-jisx0201-base-rule-list))))
 
-     (dolist (rule skk-act-additional-rom-kana-rule-list)
+     (dolist (rule skk-dvorakjp-additional-rom-kana-rule-list)
        (add-to-list 'skk-jisx0201-rule-list
 		    (if (listp (nth 2 rule))
 			(list (nth 0 rule) (nth 1 rule)
@@ -794,7 +781,7 @@
 	   (skk-compile-rule-list skk-jisx0201-base-rule-list
 				  skk-jisx0201-rule-list))))
 
-(run-hooks 'skk-acty-load-hook)
+(run-hooks 'skk-dvorakjpy-load-hook)
 
 (provide 'skk-dvorakjp)
 ;;; skk-dvorak.el ends here
