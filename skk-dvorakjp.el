@@ -784,4 +784,5 @@
 (run-hooks 'skk-dvorakjpy-load-hook)
 
 (provide 'skk-dvorakjp)
-;;; skk-dvorak.el ends here
+
+;;; skk-dvorakjp.el ends here
