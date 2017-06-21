@@ -470,7 +470,7 @@
 	   ("hr" nil ("ヒトリ" . "ひとり"))
 	   ("hl" nil ("ヒョウ" . "ひょう"))
 	   ("hd" nil ("ホド" . "ほど"))
-	   ;;("hh" nil ("ヒト" . "ひと"))
+	   ("hh" "h" ("ッ" . "っ"))
 	   ("hz" nil ("ヒジョウ" . "ひじょう"))
 	   ("tf" nil ("トリ" . "とり"))
 	   ("tg" nil ("トシテ" . "として"))
@@ -515,7 +515,7 @@
 	   ("mt" nil ("マタ" . "また"))
 	   ("mn" nil ("モノ" . "もの"))
 	   ("ms" nil ("マス" . "ます"))
-	   ;;("mm" nil ("オモ" . "おも"))
+	   ("mm" "m" ("ッ" . "っ"))
 	   ("wr" nil ("ワレ" . "われ"))
 	   ("wt" nil ("ワタシ" . "わたし"))
 	   ("wn" nil ("ワレワレ" . "われわれ"))
@@ -675,7 +675,7 @@
 (let ((del-list '("hh" "mm")))
   (dolist (str del-list)
     (setq skk-rom-kana-rule-list
-	  (skk-del-alist str skk-rom-kana-rule-list))))
+    (skk-del-alist str skk-rom-kana-rule-list))))
 
 ;; DvorakJP特有の変換規則を追加する
 (dolist (rule skk-dvorakjp-additional-rom-kana-rule-list)
@@ -686,12 +686,12 @@
   '(progn
      (dolist (str skk-dvorakjp-unnecessary-base-rule-list)
        (setq skk-jisx0201-base-rule-list
-	     (skk-del-alist str skk-jisx0201-base-rule-list)))
+         (skk-del-alist str skk-jisx0201-base-rule-list)))
 
      (let ((del-list '("hh" "mm")))
        (dolist (str del-list)
-	 (setq skk-jisx0201-base-rule-list
-	       (skk-del-alist str skk-jisx0201-base-rule-list))))
+         (setq skk-jisx0201-base-rule-list
+           (skk-del-alist str skk-jisx0201-base-rule-list))))
 
      (dolist (rule skk-dvorakjp-additional-rom-kana-rule-list)
        (add-to-list 'skk-jisx0201-rule-list
