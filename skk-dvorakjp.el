@@ -11,7 +11,7 @@
 ;; dvorak 配列での拡張ローマ字入力 "DvorakJP" を SKK で使うための設定です．
 ;;   キー割当て変更点
 ;;                                  SKK標準     DvorakJP
-;;	`skk-toggle-kana'              q         \
+;;	`skk-toggle-characters'        q         \
 ;;	`skk-set-henkan-point-subr'    Q         |
 ;;	`skk-input-by-code-or-menu'    \     割当てなし
 ;;	`skk-purge-from-jisyo'         X     割当てなし
@@ -56,7 +56,7 @@
 (defvar skk-dvorakjp-additional-rom-kana-rule-list
   (let ((list
          '(
-           ("\\" nil skk-toggle-kana)
+           ("\\" nil skk-toggle-characters)
            ("|" nil skk-set-henkan-point-subr)
            ("`|" nil "|")
            ("'" nil ("ッ" . "っ"))
